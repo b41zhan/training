@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .form-container {
+            margin: 50px auto;
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .form-container select, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Edit Task</h1>
+    <form th:action="@{/main/editTask}" method="post">
+        <input type="hidden" name="id" th:value="${task.id}" />
+        <label for="status">Status:</label>
+        <select name="status" id="status">
+            <option value="Pending" th:selected="${task.status == 'Pending'}">Pending</option>
+            <option value="Done" th:selected="${task.status == 'Done'}">Done</option>
+        </select>
+        <button type="submit">Save Changes</button>
+    </form>
+    <a th:href="@{/main}" style="text-decoration: none; color: red;">Cancel</a>
+</div>
+</body>
+</html>

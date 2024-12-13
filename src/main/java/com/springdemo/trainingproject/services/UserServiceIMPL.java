@@ -39,6 +39,10 @@ public class UserServiceIMPL implements UserService {
         return userRepo.save(user);
     }
 
+    public void save(User user) {
+        userRepo.save(user);
+    }
+
 
 
 

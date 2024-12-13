@@ -13,12 +13,12 @@ public class EmailService {
     public EmailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
-    public void sendCode(String toEmail, String code) {
+    public void sendCode(String toEmail, String name) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("satynbekovbaizhan@gmail.com");
         message.setTo(toEmail);
-        message.setSubject("Ваш код для подтверждения");
-        message.setText("Здравствуйте! Ваш код для подтверждения смены пароля: " + code);
+        message.setSubject("Salamalekum");
+        message.setText(name);
 
         mailSender.send(message);
     }

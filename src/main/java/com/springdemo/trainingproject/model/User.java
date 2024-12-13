@@ -21,6 +21,8 @@ public class User {
     private String username;
     private String email;
     private String password;
+
+    private String photo;
     @OneToMany(mappedBy ="user",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks = new ArrayList<>();
 
@@ -38,6 +40,26 @@ public class User {
     }
     public User()
     {}
+    public User(String username, String email, String password, String photo) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.photo = photo;
+    }
+    public User(Long id,String username, String email, String password, String photo) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.photo = photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+    public String getPhoto() {
+        return photo;
+    }
 
     public Long getId() {
         return id;

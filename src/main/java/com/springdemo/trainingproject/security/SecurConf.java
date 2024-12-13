@@ -36,13 +36,13 @@ public class SecurConf {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login") // Страница логина
-                        .defaultSuccessUrl("/main", true) // Редирект на /main при успехе
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/main", true)
 
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/logout") // URL для выхода
-                        .logoutSuccessUrl("/login") // Перенаправление после выхода
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login")
                 )
                 .build();
     }
